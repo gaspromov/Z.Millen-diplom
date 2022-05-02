@@ -1,1 +1,215 @@
-/* You can add global styles to this file, and also import other style files */
+html, body, app-root{
+    scroll-behavior: smooth;
+    display: grid;
+    min-height: 100vh;
+    min-width: 100%;
+    > *{
+        display: grid;
+    }
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+}
+
+html{
+    &::-webkit-scrollbar-thumb{
+        border: none;
+        background: #afafaf;
+        transition: .4s;
+        &:hover{
+            background: #818181;
+        }
+    }
+
+    &::-webkit-scrollbar{
+        width: 8px;
+        background: #dedee0;
+    }
+}
+
+
+
+router-outlet{
+    position: absolute;
+}
+
+button, label {
+    ngx-spinner, ngx-spinner > div{
+        border-radius: inherit;
+        background-color: rgba(0, 0, 0, 0) !important;
+    }
+
+    ngx-spinner > div > div{
+        width: 25px !important;
+        height: 25px !important;
+        > div{
+            width: inherit !important;
+            height: inherit !important;
+            border-width: 3.5px !important;
+        }
+    }
+}
+
+[hide-on-print]{
+    @media print {
+        display: none !important;
+    }
+}
+
+// ngx-spinner{
+//     z-index: 10;
+//     > div > div > div{
+//         transition: $primary-transition-time;
+//         color: #fff;
+//     }
+// }
+
+
+a{text-decoration: none;}
+a:focus{outline: auto;}
+button, select, a, input[type="checkbox"], input[type="radio"]{cursor: pointer; box-sizing: border-box; padding: 0;margin: 0;}
+textarea{ box-sizing: border-box; }
+button, input{background: none; border: none; padding: 0px; box-sizing: border-box;}
+input[type="date"]{cursor: text; width: 90px; text-align: center;}
+
+input[type="date"], input[type="time"], input[type="datetime-local"]{
+    position: relative;
+    padding-right: 32px !important;
+    &::-webkit-calendar-picker-indicator, &::-webkit-inner-spin-button{
+        // display: none; -webkit-appearance: none;
+        position: absolute;
+        width: 20px;
+        right: 0px;
+
+    }
+}
+
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button{ -webkit-appearance: none; margin: 0; }
+div, form, nav, footer, header, main, section{box-sizing: border-box;}
+h1, h2, h3, h4, p, ul, li{margin: 0px; padding: 0px;}
+button:disabled{
+    cursor: default;
+}
+svg, svg path{
+    transition: .3s;
+}
+
+.pointer, label{
+    cursor: pointer;
+}
+
+*{
+    color: #000;
+    scroll-behavior: smooth;
+    font-family: 'Circe', sans-serif;
+    &::selection{
+        color: #fff;
+        background-color: #78b0f8;
+        // &:not(h1,h2,h3){
+            text-shadow: 0px 2px 3px rgb(38 46 55 / 30%);
+        // }
+    }
+}
+
+button, input{
+    position: relative;
+    padding: 0px 5px;
+    border: 1px solid #E7E8EA;
+    &.empty{
+        padding: 0px;
+        border: none;
+    }
+    outline: none;
+}
+
+input{
+    padding: 0px 8px;
+    padding-right: 0px;
+}
+
+fieldset{
+    border: none;
+    display: grid;
+    padding: 0px
+}
+
+
+
+
+input.hidden{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+}
+
+
+* {
+    -webkit-print-color-adjust: exact;   /* Chrome, Safari, Edge */
+    color-adjust: exact ;                 /*Firefox*/
+}
+
+.row{
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center
+}
+
+.bg-response{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center
+}
+
+*{
+    webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color:  transparent;
+}
+
+
+
+.inp-primary{
+    background: #FFFFFF;
+    border: 1px solid #E7E8EA;
+    box-sizing: border-box;
+    border-radius: 6px;
+    height: 43px;
+    font-size: 18px;
+    &::placeholder{
+        color: #CBCBCB;
+    }
+
+    &.ng-touched.ng-invalid{
+        border-color: rgb(197, 61, 61);
+    }
+}
+
+.btn-primary{
+    height: 43px;
+    background: #FF7A00;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+
+.window{
+    background: #e0e0e0;
+    border-radius: 4px;
+    display: grid;
+    row-gap: 25px;
+    justify-items: center;
+
+    &__title{
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 20px;
+        text-align: center;
+    }
+
+    &__btn{
+        justify-self: center;
+    }
+}

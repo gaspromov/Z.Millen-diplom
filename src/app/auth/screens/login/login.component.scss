@@ -1,0 +1,27 @@
+:host{
+    justify-self: center;
+    align-self: center;
+}
+
+.window{
+    padding: 65px 110px 30px;
+}
+
+fieldset{
+    row-gap: 25px;
+    width: 440px;
+}
+
+
+.btn-primary{
+    width: 230px;
+    margin-top: 20px;
+}
+
+a{
+    color: #FF7A00;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 5px;
+}
