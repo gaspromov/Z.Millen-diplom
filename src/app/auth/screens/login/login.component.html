@@ -5,7 +5,9 @@
         <input type="password" formControlName="password" placeholder="Пароль" class="inp-primary">
     </fieldset>
 
-    <button class="btn-primary window__btn">Войти</button>
+    <button class="btn-primary window__btn">
+        <app-btn-loader text="Войти" [loading]="loading"></app-btn-loader>
+    </button>
 
     <a routerLink="/auth/registration">Регистрация</a>
 </form>

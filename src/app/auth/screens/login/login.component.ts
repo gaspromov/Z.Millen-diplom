@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { finalize, take } from 'rxjs';
 import { Requests } from 'src/app/requests';
-import { HttpService } from 'src/app/services/http.service';
+import { HttpService } from 'src/app/shared/services/http.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,8 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
 
   constructor(
-    private http: HttpService
+    private auth: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -34,11 +37,12 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
 
-    this.http.request( Requests['authLogin'], this.loginForm.value )
+    this.auth.login(this.loginForm.value)
       .pipe(take(1), finalize(() => this.loading = false))
       .subscribe(
-        res => console.log(res),
-        err => {}
+        res => {},
+        err => {},
+        () => this.router.navigate(['/home'])
       )
   }
 }

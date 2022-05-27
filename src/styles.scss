@@ -42,10 +42,17 @@ button, label {
     ngx-spinner > div > div{
         width: 25px !important;
         height: 25px !important;
+        background-color: rgba(0, 0, 0, 0) !important;
         > div{
             width: inherit !important;
             height: inherit !important;
             border-width: 3.5px !important;
+        }
+    }
+    
+    ngx-spinner{
+        > div > div > div{
+            color: #000;
         }
     }
 }
@@ -212,4 +219,50 @@ input.hidden{
     &__btn{
         justify-self: center;
     }
+}
+
+
+
+
+#notifications-block{
+    display: grid;
+    row-gap: 20px;
+    width: 325px;
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+    z-index: 1000;
+    .notification{
+        display: grid;
+        height: 65px;
+        // padding: 20px 10px;
+        width: 100%;
+        max-height: 0px;
+        transition: .4s;
+        border-radius: 4px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #fff;
+
+        text-align: center;
+        place-items: center;
+        &.show{
+            max-height: 100px;
+        }
+
+        &.error{
+            background-color: #E99CAC;
+        }
+
+       &.publish-height {
+         height: 85px;
+       }
+
+        &.success{
+            background-color: rgb(124, 228, 176);
+        }
+
+        overflow: hidden;
+    }
+
 }
