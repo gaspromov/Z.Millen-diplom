@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: 'app-btn-loader',
+  selector: 'btn-loader',
   templateUrl: './btn-loader.component.html',
   styleUrls: ['./btn-loader.component.scss']
 })
