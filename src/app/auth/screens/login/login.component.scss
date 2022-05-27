@@ -1,20 +1,25 @@
 :host{
-    justify-self: center;
-    align-self: center;
+    display: grid;
 }
 
 .window{
-    padding: 65px 110px 30px;
+    padding: 65px 20px 30px;
+    max-width: 670px;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
 }
 
 fieldset{
     row-gap: 25px;
-    width: 440px;
+    max-width: 440px;
+    width: 100%;
 }
 
 
 .btn-primary{
-    width: 230px;
+    max-width: 230px;
+    width: 90%;
     margin-top: 20px;
 }
 
