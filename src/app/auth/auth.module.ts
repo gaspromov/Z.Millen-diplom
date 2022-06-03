@@ -4,19 +4,23 @@ import { LoginComponent } from './screens/login/login.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToolsModule } from '../tools/tools.module';
+import { RegistrationComponent } from './screens/registration/registration.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ToolsModule
+    ToolsModule,
+    NgxMaskModule.forRoot()
   ]
 })
 export class AuthModule { }

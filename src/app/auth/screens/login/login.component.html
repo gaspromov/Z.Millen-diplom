@@ -1,11 +1,11 @@
 <form class="window" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-    <h2 class="window__title">Войти в личный кабинет</h2>
+    <h2 class="window__title">Вход</h2>
     <fieldset>
         <input type="email" placeholder="E-mail" autocomplete="email" class="inp-primary" formControlName="email">
         <input type="password" formControlName="password" placeholder="Пароль" class="inp-primary">
     </fieldset>
 
-    <button class="btn-primary window__btn">
+    <button class="btn-primary window__btn" [disabled]="loading">
         <btn-loader text="Войти" [loading]="loading"></btn-loader>
     </button>
 
