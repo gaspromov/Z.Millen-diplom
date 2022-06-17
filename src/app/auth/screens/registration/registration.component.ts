@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { finalize, take } from 'rxjs';
+import { Requests } from 'src/app/requests';
+import { HttpService } from 'src/app/shared/services/http.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -15,7 +18,8 @@ export class RegistrationComponent implements OnInit {
   repeatedPassword = new FormControl(null, Validators.required)
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private http: HttpService
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +37,20 @@ export class RegistrationComponent implements OnInit {
   }
 
   onRegistr(){
-    
+    this.regForm.markAsTouched();
+
+    if (this.regForm.invalid) return
+
+    // временно
+    return
+
+    this.loading = true;
+
+    this.http.request(Requests['authRegistr'], this.regForm.value)
+      .pipe(
+        take(1),
+        finalize(() => this.loading = false)
+      )
+      .subscribe()
   }
 }

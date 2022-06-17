@@ -9,5 +9,6 @@ type RequestsRecord = Record<string, ReqData>;
 
 
 export const Requests: RequestsRecord = {
-    authLogin: { url: '/auth', method: 'POST' }
+    authLogin: { url: '/auth', method: 'POST' },
+    authRegistr: { url: '/registr', method: 'POST' }
 }

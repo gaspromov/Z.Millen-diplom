@@ -183,6 +183,7 @@ input.hidden{
     border-radius: 6px;
     height: 43px;
     font-size: 18px;
+    min-width: 60px;
     &::placeholder{
         color: #CBCBCB;
     }

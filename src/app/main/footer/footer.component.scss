@@ -1,7 +1,12 @@
+@import '/src/environments/device-sizes.scss';
+
 footer{
     border-top: 2px solid #FF7A00;
     padding: 35px 130px;
     display: grid;
+    @media screen and ( max-width: $tab-size ) {
+        padding: 20px 40px;
+    }
 }
 
 p{

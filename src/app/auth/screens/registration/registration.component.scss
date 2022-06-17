@@ -1,3 +1,5 @@
+@import '/src/environments/device-sizes.scss';
+
 :host{
     display: grid;
 }
@@ -10,3 +12,24 @@
     justify-self: center;
 }
 
+.fields{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 20px;
+    @media screen and ( max-width: $tab-size ) {
+        grid-template-columns: 1fr;
+    }
+    justify-self: center;
+
+    width: 100%;
+
+    @media screen and ( max-width: $tab-size ) {
+        max-width: 400px;
+    }
+}
+
+fieldset{
+    display: grid;
+    row-gap: 20px;
+}

@@ -10,7 +10,7 @@
     
 
         <fieldset>
-            <input type="text" placeholder="username" name="username" class="inp-primary">
+            <input type="text" formControlName="username" placeholder="Пользовательское имя" name="username" class="inp-primary">
             <app-password-control [control]="regForm.controls['password']"></app-password-control>
             <app-password-control [control]="repeatedPassword" placeholder="Повторите пароль"></app-password-control>
         </fieldset>
