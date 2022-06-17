@@ -3,6 +3,11 @@
 nav{
     padding: 30px 130px; 
     border-bottom: 2px solid #FF7A00;
+
+    display: grid;
+    a{
+        display: grid;
+    }
     @media screen and ( max-width: $tab-size ) {
         padding: 20px 40px;
     }
