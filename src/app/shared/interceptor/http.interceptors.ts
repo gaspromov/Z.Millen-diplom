@@ -38,7 +38,6 @@ export class HttpInterceptors implements HttpInterceptor {
 
     if ( err['status'] == 0 )
       this.tools.generateNotification( 'Что-то пошло не так. \n Проверьте соединение.', true, false );
-
   }
 
 
