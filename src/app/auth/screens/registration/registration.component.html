@@ -4,15 +4,15 @@
     <div class="fields">
         <fieldset>
             <input type="text" formControlName="name" placeholder="Имя" name="name" class="inp-primary">
-            <input type="text" formControlName="sirname" placeholder="Фамилия" name="secondname" class="inp-primary">
+            <input type="text" formControlName="last_name" placeholder="Фамилия" name="last_lame" class="inp-primary">
             <input type="text" formControlName="phone" placeholder="Телефон" name="phone" prefix="+7" mask="(000)000-00-00" class="inp-primary">
         </fieldset>
     
 
         <fieldset>
-            <input type="text" formControlName="username" placeholder="Пользовательское имя" name="username" class="inp-primary">
+            <input type="text" formControlName="email" placeholder="Электронная почта" name="email" class="inp-primary">
             <app-password-control [control]="regForm.controls['password']"></app-password-control>
-            <app-password-control [control]="repeatedPassword" placeholder="Повторите пароль"></app-password-control>
+            <app-password-control [control]="regForm.controls['password_confirm']" placeholder="Повторите пароль"></app-password-control>
         </fieldset>
     </div>
     <!-- <app-password-control [control]="regForm.controls['password']"></app-password-control> -->
