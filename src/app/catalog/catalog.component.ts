@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize, map, Subscription, take } from 'rxjs';
@@ -30,7 +30,8 @@ export class CatalogComponent implements OnInit, OnDestroy {
 
   constructor(
     private http: HttpService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private cdr: ChangeDetectorRef
   ) { 
   }
 
@@ -57,6 +58,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
       )
       .subscribe(res => {
         this.products = res;
+        this.cdr.detectChanges();
       })
   }
 
