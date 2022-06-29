@@ -32,10 +32,9 @@
         ></app-product-card>
     </div>
     
-    <app-paginator
+    <app-paginator  style="grid-column: 1/3; justify-self: end; padding-right: 20px"
         [length]="products.length"
         [pageSize]="countOnPage"
         (onChangePage)="setOutputBrands($event)"
-        style="padding-right: 30px;"
     ></app-paginator>
 </div>
