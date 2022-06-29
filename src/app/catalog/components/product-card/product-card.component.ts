@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToolsService } from 'src/app/shared/services/tools.service';
+import { environment } from 'src/environments/environment';
 import { Product } from '../../interfaces/product';
 
 @Component({
@@ -10,6 +11,8 @@ import { Product } from '../../interfaces/product';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product!: Product
+
+  apiUrl = environment.apiUrl
 
   loading: boolean = false;
 
