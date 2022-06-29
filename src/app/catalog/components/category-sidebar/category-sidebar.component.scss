@@ -1,0 +1,42 @@
+aside{
+    border-radius: 8px;
+    border: 2px solid #FF7A00;
+    padding: 15px 20px;
+    box-sizing: border-box;
+}
+
+
+ul{
+    list-style: none;
+    display: grid;
+    row-gap: 15px;
+    li{
+        display: grid;
+    }
+}
+
+
+a{
+    color: #7E7979;
+    font-size: 16px;
+    line-height: 100%;
+
+    position: relative;
+
+    &::after{
+        content: '';
+        display: inline-block;
+        width: 100%;
+        bottom: -3px;
+        left: 0px;
+        background-color: #FF7A00;
+        height: 1px;
+        position: absolute;
+        opacity: 0;
+        transition: .3s;
+    }
+
+    &.active::after{
+        opacity: 1;
+    }
+}

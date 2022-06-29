@@ -12,7 +12,7 @@ import { HttpService } from './shared/services/http.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

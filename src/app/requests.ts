@@ -10,5 +10,8 @@ type RequestsRecord = Record<string, ReqData>;
 
 export const Requests: RequestsRecord = {
     authLogin: { url: '/auth/login/', method: 'POST' },
-    authRegistr: { url: '/auth/register', method: 'POST' }
+    authRegistr: { url: '/auth/register', method: 'POST' },
+    getProducts: { url: '/shop/products', method: 'GET' },
+    getCategories: { url: '/shop/categories', method: 'GET' },
+    getMe:        { url: '/@me', method: 'GET' }
 }

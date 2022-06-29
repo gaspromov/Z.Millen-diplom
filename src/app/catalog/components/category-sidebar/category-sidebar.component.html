@@ -1,0 +1,14 @@
+<aside>
+    <ul>
+        <li>
+            <a routerLink="/catalog/all" routerLinkActive="active" (click)="onNewCategory.emit({title: 'Все товары'})">
+                Все
+            </a>
+        </li>
+        <li *ngFor="let category of categories">
+            <a routerLink="/catalog/{{category.id}}" routerLinkActive="active" (click)="onNewCategory.emit(category)">
+                {{ category.title }}
+            </a>
+        </li>
+    </ul>
+</aside>

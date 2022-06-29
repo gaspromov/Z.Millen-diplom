@@ -1,0 +1,15 @@
+<div class="row" *ngIf="pageNums.length > 1 ">
+    <button [class.active]="currentPage != 1" class="btn-change-page" [disabled]="currentPage == 1" (click)="moveToPrevPage()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+            <path d="M6.77703 10.6402L1.0142 5.81462L6.74843 1.00007" stroke="#525252"/>
+        </svg>
+    </button>
+
+    <button *ngFor="let pageNum of pageNums" (click)="setPage(pageNum)" [class.active]="currentPage == pageNum">{{ pageNum }}</button>
+    
+    <button [class.active]="currentPage != pageNums.length" [disabled]="currentPage == pageNums.length" class="btn-change-page" (click)="moveToNextPage()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+            <path d="M1.02863 1.00048L6.7627 5.86018L0.99996 10.6406" stroke="#525252"/>
+        </svg>
+    </button>
+</div>

@@ -4,17 +4,20 @@ import { BtnLoaderComponent } from './form-components/btn-loader/btn-loader.comp
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { PasswordControlComponent } from './form-components/password-control/password-control.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 
 
 @NgModule({
   declarations: [
     BtnLoaderComponent,
-    PasswordControlComponent
+    PasswordControlComponent,
+    PaginatorComponent
   ],
   exports: [
     BtnLoaderComponent,
-    PasswordControlComponent
+    PasswordControlComponent,
+    PaginatorComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,43 @@
+:host{
+    position: relative;
+}
+
+button{
+    background-color: #FF7A00C9;
+    width: 33px;
+    height: 25px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    svg{
+        left: -1px;
+        position: relative;
+        width: 17px;
+        height: 17px;
+    }
+}
+
+.card{
+    height: 100%;
+    display: grid;
+    row-gap: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #CBCBCB;
+    &__title{
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    &__img{
+        height: 180px;
+        justify-self: center;
+    }
+
+    &__btn{
+        justify-self: end;
+    }
+}

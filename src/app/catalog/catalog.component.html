@@ -1,0 +1,41 @@
+
+<h1>Каталог</h1>
+
+<div class="content-wrapper">
+    <h2>{{category.title}}</h2>
+    <app-category-sidebar (onNewCategory)="category=$event"></app-category-sidebar>
+    
+    <div class="row">
+        <div class="inp-wrapper">
+            <input type="text" [(ngModel)]="searchParam" name="" id="" placeholder="Поиск товаров">
+        </div>
+        <select [(ngModel)]="sortParam">
+            <option value="" selected disabled>Не сортировать</option>
+            <option value="price">По цене</option>
+        </select>
+    </div>
+    <div class="products">
+        <ngx-spinner *ngIf="loading" style="width: 0px; height: 0px;"
+            [fullScreen]="false"
+            type="ball-clip-rotate"
+            [name]="spinnerName"
+            bdColor="#F2F3F550"
+            size="medium"
+        ></ngx-spinner>
+        <app-product-card *ngFor="
+                let item of outputProducts 
+                | search:'category':category?.id:true
+                | search:'name':searchParam:false
+                | sort:sortParam:true
+            " 
+            [product]="item"
+        ></app-product-card>
+    </div>
+    
+    <app-paginator
+        [length]="products.length"
+        [pageSize]="countOnPage"
+        (onChangePage)="setOutputBrands($event)"
+        style="padding-right: 30px;"
+    ></app-paginator>
+</div>
