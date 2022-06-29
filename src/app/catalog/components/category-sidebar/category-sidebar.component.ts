@@ -12,7 +12,7 @@ import { Category } from '../../interfaces/category';
 })
 export class CategorySidebarComponent implements OnInit {
   categories: Category[] = [
-    { title: 'SomeTitle', id: 1 }
+    // { title: 'SomeTitle', id: 1 }
   ];
 
   @Output() onNewCategory = new EventEmitter<{title: string, id?: number}>()
