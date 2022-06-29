@@ -41,9 +41,6 @@ export class RegistrationComponent implements OnInit {
 
     if (this.regForm.invalid) return
 
-    // временно
-    return
-
     this.loading = true;
 
     this.http.request(Requests['authRegistr'], this.regForm.value)
