@@ -15,7 +15,7 @@ export class RegistrationComponent implements OnInit {
 
   loading: boolean = false;
 
-  repeatedPassword = new FormControl(null, Validators.required)
+  // password_confirm = new FormControl(null, Validators.required)
 
   constructor(
     private auth: AuthService,
@@ -29,10 +29,11 @@ export class RegistrationComponent implements OnInit {
   generateForm(){
     this.regForm = new FormGroup({
       name: new FormControl(null, Validators.required),
-      sirname: new FormControl(null, Validators.required),
+      last_name: new FormControl(null, Validators.required),
       phone: new FormControl(null, Validators.required),
-      username: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
+      password_confirm: new FormControl(null, Validators.required)
     })
   }
 
