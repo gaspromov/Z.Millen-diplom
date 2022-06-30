@@ -5,14 +5,25 @@
 
 
     <div class="links row">
-        <a [routerLink]=" isAuth ? ['/account'] : ['/auth/login']" class="link links__item">
+        <a routerLink="/basket" class="link links__item">
             <svg class="link__icon" xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40" fill="none">
+                <path d="M15.3923 36.6668C16.3127 36.6668 17.0589 35.9206 17.0589 35.0002C17.0589 34.0797 16.3127 33.3335 15.3923 33.3335C14.4718 33.3335 13.7256 34.0797 13.7256 35.0002C13.7256 35.9206 14.4718 36.6668 15.3923 36.6668Z" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M33.7262 36.6668C34.6467 36.6668 35.3929 35.9206 35.3929 35.0002C35.3929 34.0797 34.6467 33.3335 33.7262 33.3335C32.8058 33.3335 32.0596 34.0797 32.0596 35.0002C32.0596 35.9206 32.8058 36.6668 33.7262 36.6668Z" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.05957 1.6665H8.72624L13.1929 23.9832C13.3453 24.7505 13.7628 25.4398 14.3721 25.9303C14.9815 26.4209 15.7441 26.6815 16.5262 26.6665H32.7262C33.5084 26.6815 34.2709 26.4209 34.8803 25.9303C35.4897 25.4398 35.9072 24.7505 36.0596 23.9832L38.7262 9.99984H10.3929" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="link__title">
+                корзина
+            </span>
+        </a>
+
+        <a [routerLink]=" isAuth ? ['/account'] : ['/auth/login']" class="link links__item">
+            <svg class="link__icon" *ngIf="isAuth" xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40" fill="none">
                 <path d="M34.2262 35V31.6667C34.2262 29.8986 33.5239 28.2029 32.2736 26.9526C31.0234 25.7024 29.3277 25 27.5596 25H14.2262C12.4581 25 10.7624 25.7024 9.51219 26.9526C8.26195 28.2029 7.55957 29.8986 7.55957 31.6667V35" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M20.8923 18.3333C24.5742 18.3333 27.5589 15.3486 27.5589 11.6667C27.5589 7.98477 24.5742 5 20.8923 5C17.2104 5 14.2256 7.98477 14.2256 11.6667C14.2256 15.3486 17.2104 18.3333 20.8923 18.3333Z" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
 
             <span class="link__title">
-                <div *ngIf="isAuth;then loginTitle else accTitle">here is ignored</div>
+                <div *ngIf="isAuth;then accTitle else loginTitle">here is ignored</div>
                 <ng-template #loginTitle>
                     войти
                 </ng-template>
