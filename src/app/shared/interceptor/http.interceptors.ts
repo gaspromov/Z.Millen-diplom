@@ -5,23 +5,34 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, throwError, switchMap } from 'rxjs';
 import { ToolsService } from '../services/tools.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Injectable()
 export class HttpInterceptors implements HttpInterceptor {
 
   constructor(
-    private tools: ToolsService
+    private tools: ToolsService,
+    private auth: AuthService
   ) {}
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(req)
-      .pipe(
-        catchError(err => {
-          this.handleError(err, req);
-          return throwError(err)
-        })
+    if ( !this.auth.needToRefreshAccessToken() )
+      return next.handle(req)
+        .pipe(
+          catchError(err => {
+            this.handleError(err, req);
+            return throwError(err)
+          })
+        )
+          
+    return this.auth.refreshToken()
+      .pipe( 
+          catchError( e => { 
+              return next.handle( req ) 
+          }),
+          switchMap( ( w: any ) => next.handle( this.reqWithReplaceJWT( req, w.access ) ) )
       )
   }
 
@@ -41,5 +52,12 @@ export class HttpInterceptors implements HttpInterceptor {
   }
 
 
+  private reqWithReplaceJWT(request: HttpRequest<any>, token: string) {
+    return request.clone({
+        setHeaders: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+  }
 
 }

@@ -7,7 +7,8 @@ import { AuthStateService } from './auth-state.service';
 
 interface AuthData{
   access: string
-  group: string
+  group: string,
+  refresh: string
 } 
 
 @Injectable({
@@ -34,9 +35,31 @@ export class AuthService {
       )
   }
 
-  private onSuccessLogin(authData: AuthData){
+  private onSuccessLogin(authData: AuthData, isRefresh: boolean = false){
     localStorage.setItem('accessToken', authData.access);
+    localStorage.setItem('refreshToken', authData.refresh)
+    localStorage.setItem('assessTokenExpiresIn', String(new Date().getTime() + 1000*60*5))
+    
+    if ( !isRefresh ) return
+    
     localStorage.setItem('userGroup', authData.group);
     this.authState.onChangeState(true)
+  }
+
+  
+  refreshToken(){
+    let refreshToken: string | null = localStorage.getItem('refreshToken');
+
+    return this.http.request( Requests['authRefreshToken'], { refresh: refreshToken } )
+      .pipe( tap( data => this.onSuccessLogin( data, true ) ) )
+  }
+
+
+  public needToRefreshAccessToken(): Boolean{
+    if ( !localStorage['refreshToken'] ) return false
+
+    let expiresIn = new Date(Number(localStorage['accessTokenExpiresIn'])).getTime();
+
+    return (expiresIn < new Date().getTime()) || (!localStorage['accessToken'] && localStorage['refreshToken'])
   }
 }
