@@ -2,8 +2,9 @@
 
 footer{
     border-top: 2px solid #FF7A00;
-    padding: 35px 130px;
+    padding: 25px 130px;
     display: grid;
+    row-gap: 10px;
     @media screen and ( max-width: $tab-size ) {
         padding: 20px 40px;
     }
@@ -14,4 +15,28 @@ p{
     font-size: 16px;
     line-height: 100%;
     justify-self: end;
+}
+
+// .row:first-child{
+    a{
+        color: #7E7979;
+        justify-self: start;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+// }
+
+.row:last-child{
+    justify-content: start;
+    column-gap: 80px;
+    row-gap: 10px;
+
+    @media screen and ( max-width: $tab-size ) {
+        justify-content: center;
+        a{
+            justify-self: center;
+        }
+        grid-auto-flow: row;
+    }
 }
