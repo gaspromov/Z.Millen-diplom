@@ -1,7 +1,7 @@
 @import '/src/environments/device-sizes.scss';
 
 nav{
-    padding: 30px 130px; 
+    padding: 25px 130px; 
     border-bottom: 2px solid #FF7A00;
 
     display: grid;
@@ -11,5 +11,29 @@ nav{
     @media screen and ( max-width: $tab-size ) {
         padding: 20px 40px;
     }
+
+    > :last-child{
+        justify-self: end;
+    }
 }
 
+
+.links{
+    column-gap: 20px;
+}
+
+
+.link{
+    display: grid;
+    row-gap: 3px;
+    justify-items: center;
+
+    &__icon{
+        height: 30px;
+    }
+
+    &__title{
+        font-size: 14px;
+        line-height: 100%;
+    }
+}

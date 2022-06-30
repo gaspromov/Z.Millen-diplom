@@ -3,6 +3,7 @@ import { catchError, take, tap, throwError } from 'rxjs';
 import { Requests } from 'src/app/requests';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { ToolsService } from 'src/app/shared/services/tools.service';
+import { AuthStateService } from './auth-state.service';
 
 interface AuthData{
   access: string
@@ -16,7 +17,8 @@ export class AuthService {
 
   constructor(
     private http: HttpService,
-    private tools: ToolsService
+    private tools: ToolsService,
+    private authState: AuthStateService
   ) { }
 
   login( data: { login: string, password: string } ){
@@ -34,6 +36,7 @@ export class AuthService {
 
   private onSuccessLogin(authData: AuthData){
     localStorage.setItem('accessToken', authData.access);
-    localStorage.setItem('userGroup', authData.group)
+    localStorage.setItem('userGroup', authData.group);
+    this.authState.onChangeState(true)
   }
 }
