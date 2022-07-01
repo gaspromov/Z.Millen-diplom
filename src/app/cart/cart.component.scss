@@ -6,7 +6,7 @@
     padding: 20px 0px;
 }
 
-.cart, .title{
+:host > *{
     max-width: 980px;
     width: 100%;
     justify-self: center;
@@ -25,3 +25,29 @@
     position: relative;
     min-height: 300px;
 }
+
+
+.order{
+    display: grid;
+    row-gap: 5px;
+    justify-items: end;
+
+    &__currency{
+        display: inline-block;
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+        background-color: #FF7A0070;
+    }
+
+    &__make{
+        font-weight: 500;
+    }
+}
+
+.total{
+    &__price{
+        font-weight: 600;
+    }
+}
+

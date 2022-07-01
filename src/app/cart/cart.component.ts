@@ -51,4 +51,10 @@ export class CartComponent implements OnInit {
   onDeleteProduct( pId: number ){
     this.cart.products = this.cart.products.filter(p => p.id != pId)
   }
+
+
+
+  getNum( str: string ){
+    return Number(str)
+  }
 }

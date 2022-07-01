@@ -21,3 +21,14 @@
     ></ngx-spinner>
 </div>
 
+
+<div class="order">
+    <p class="total">
+        <span class="total__title">Итого: </span> 
+        <span class="total__price"> {{getNum(cart.final_price)}}</span><span class="order__currency">₽</span>
+        
+    </p>
+
+    <button class="btn-primary order__make">Оформить заказ</button>
+</div>
+
