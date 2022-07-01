@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         res => {},
         err => {},
-        () => this.router.navigate(['/home'])
+        () => this.router.navigate(['/account'])
       )
   }
 }
