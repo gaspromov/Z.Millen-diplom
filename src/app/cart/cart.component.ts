@@ -49,7 +49,10 @@ export class CartComponent implements OnInit {
   }
 
   onDeleteProduct( pId: number ){
+    let product = this.cart.products.find(p => p.id == pId)
     this.cart.products = this.cart.products.filter(p => p.id != pId)
+    if ( !product ) return
+    this.onChangeCartProductFinalPrice({ prev: product.final_price, new: '0' })
   }
 
 
