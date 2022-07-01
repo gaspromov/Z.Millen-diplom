@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   { path: 'catalog', loadChildren: () => import('./catalog/catalog.module').then(m => m.CatalogModule) },
   { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
-  { path: '**', redirectTo: '/' }
+  { path: '**', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule) }
 ];
 
 @NgModule({

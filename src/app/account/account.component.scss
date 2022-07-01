@@ -1,0 +1,10 @@
+:host{
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    padding-top: 100px;
+    > * {
+        max-width: 650px;
+        width: 100%;
+    }
+}

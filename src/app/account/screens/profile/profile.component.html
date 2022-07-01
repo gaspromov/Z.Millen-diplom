@@ -1,1 +1,46 @@
-<p>profile works!</p>
+<div class="window profile" >
+    <img [src]="apiUrl + profile?.profile_image" alt="" class="profile__avatar">
+
+    <div class="profile__fields">
+        <span class="field">
+            <span class="field__title">Имя:</span>
+            <span class="field__value">{{profile?.name}}</span>
+        </span>
+        <span class="field">
+            <span class="field__title">Фамилия:</span>
+            <span class="field__value">{{profile?.last_name}}</span>
+        </span>
+        <span class="field">
+            <span class="field__title">Email:</span>
+            <span class="field__value">{{profile?.email}}</span>
+        </span>
+        <span class="field">
+            <span class="field__title">Телефон:</span>
+            <span class="field__value">{{profile?.phone}}</span>
+        </span>
+        <!-- <span class="field">
+            <span class="field__title">Имя:</span>
+            <span class="field__value">{{profile?.name}}</span> -->
+        <!-- </span> -->
+    </div>
+    <!-- <h2 class="window__title">Вход</h2>
+    <fieldset>
+        <input type="email" placeholder="E-mail" autocomplete="email" class="inp-primary" formControlName="email">
+        <input type="password" formControlName="password" placeholder="Пароль" class="inp-primary">
+    </fieldset>
+
+    <button class="btn-primary window__btn" [disabled]="loading">
+        <btn-loader text="Войти" [loading]="loading"></btn-loader>
+    </button>
+
+    <a routerLink="/auth/registration">Регистрация</a> -->
+
+    
+</div>
+
+<ngx-spinner *ngIf="loading" style="width: 0px; height: 0px;"
+[fullScreen]="false"
+type="ball-clip-rotate"
+bdColor="#F2F3F550"
+size="medium"
+></ngx-spinner>

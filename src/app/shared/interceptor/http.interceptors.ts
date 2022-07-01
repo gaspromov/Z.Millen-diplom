@@ -29,7 +29,9 @@ export class HttpInterceptors implements HttpInterceptor {
     return this.auth.refreshToken()
       .pipe( 
           catchError( e => { 
-              return next.handle( req ) 
+              this.auth.logout('/auth/login')
+              // return next.handle( req ) 
+              return throwError(e)
           }),
           switchMap( ( w: any ) => next.handle( this.reqWithReplaceJWT( req, w.access ) ) )
       )

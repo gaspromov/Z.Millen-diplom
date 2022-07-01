@@ -1,0 +1,31 @@
+:host{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+
+    row-gap: 40px;
+}
+
+
+.message{
+    display: grid;
+    justify-items: center;
+}
+h1{
+    font-size: 112px;
+    line-height: 100%;
+}
+
+p{
+    font-size: 24px;
+}
+
+a{
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}

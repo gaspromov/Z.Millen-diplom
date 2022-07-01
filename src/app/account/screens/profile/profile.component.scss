@@ -1,0 +1,39 @@
+:host{
+    position: relative;
+    width: 100%;
+    justify-self: center;
+    max-width: 650px;
+}
+
+.window{
+    padding: 30px 40px 30px;
+    max-width: 670px;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    position: relative;
+    min-height: 260px;
+}
+
+
+.profile{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    column-gap: 25px;
+    &__avatar{
+        max-width: 100%;
+    }
+
+    &__fields{
+        display: grid;
+        row-gap: 15px;
+        justify-items: left;
+        justify-self: stretch;
+    }
+}
+
+.field{
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 15px;
+}

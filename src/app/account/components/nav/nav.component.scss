@@ -1,0 +1,20 @@
+ul{
+    justify-items: center;
+    list-style: none;
+    column-gap: 35px;
+}
+
+
+a{
+    background: #e0e0e0;
+    border-radius: 20px 20px 0px 0px;
+    width: 140px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    &.active{
+        background-color: #FF993A
+    }
+}
