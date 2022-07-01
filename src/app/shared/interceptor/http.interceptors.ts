@@ -48,6 +48,11 @@ export class HttpInterceptors implements HttpInterceptor {
 
     if ( err['status'] == 403 )
       this.tools.generateNotification( 'Ошибка прав доступа.', true, false );
+      
+    if ( err['status'] == 401 ){
+      this.tools.generateNotification( 'Ошибка авторизации.', true, false );
+      this.auth.logout('/auth/login')
+    }
 
     if ( err['status'] == 0 )
       this.tools.generateNotification( 'Что-то пошло не так. \n Проверьте соединение.', true, false );

@@ -15,5 +15,5 @@ export const Requests: RequestsRecord = {
     getProducts: { url: '/shop/products', method: 'GET' },
     getCategories: { url: '/shop/categories', method: 'GET' },
     addToBasket:   { url: '/cart', method: 'POST', authType: 'jwt' },
-    getMe:        { url: '/@me', method: 'GET' }
+    getMe:        { url: '/@me', method: 'GET', authType: 'jwt' }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { catchError, take, tap, throwError } from 'rxjs';
 import { Requests } from 'src/app/requests';
 import { HttpService } from 'src/app/shared/services/http.service';
@@ -19,7 +20,8 @@ export class AuthService {
   constructor(
     private http: HttpService,
     private tools: ToolsService,
-    private authState: AuthStateService
+    private authState: AuthStateService,
+    private router: Router
   ) { }
 
   login( data: { login: string, password: string } ){
@@ -40,9 +42,9 @@ export class AuthService {
     localStorage.setItem('refreshToken', authData.refresh)
     localStorage.setItem('assessTokenExpiresIn', String(new Date().getTime() + 1000*60*5))
     
-    if ( !isRefresh ) return
+    if ( isRefresh ) return
     
-    localStorage.setItem('userGroup', authData.group);
+    // localStorage.setItem('userGroup', authData.group);
     this.authState.onChangeState(true)
   }
 
@@ -60,5 +62,12 @@ export class AuthService {
 
     let expiresIn = new Date(Number(localStorage['assessTokenExpiresIn'])).getTime();
     return (expiresIn < new Date().getTime()) || (!localStorage['accessToken'] && localStorage['refreshToken'])
+  }
+
+  public logout( redirectTo?: string ){
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('refreshToken')
+    this.authState.onChangeState(false);
+    this.router.navigate([redirectTo || '/'])
   }
 }
