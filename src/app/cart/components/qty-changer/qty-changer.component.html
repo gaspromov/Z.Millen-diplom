@@ -1,0 +1,7 @@
+<button class="btn" (click)=onChangeQty(-1)>
+    -
+</button>
+<input type="number" [(ngModel)]="qty" (blur)="changeQty()">
+<button class="btn" (click)=onChangeQty(1)>
+    +
+</button>

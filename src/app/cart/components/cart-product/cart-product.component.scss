@@ -1,0 +1,72 @@
+:host{
+    position: relative;
+}
+
+.product{
+    padding: 15px;
+    border-radius: 8px;
+    display: grid;
+    border: 1px solid #FF7A00;
+    height: 180px;
+    column-gap: 20px;
+
+    grid-auto-flow: column;
+    align-items: center;
+    grid-template-columns: 180px 1fr;
+
+    position: relative;
+
+    &__image{
+        width: 100%;
+    }
+
+    &__title{
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+
+    &__data{
+        display: grid;
+        align-content: start;
+        row-gap: 25px;
+        align-self: start;
+    }
+
+    &__qty{
+        justify-content: start;
+        column-gap: 10px;
+        span{
+            font-size: 14px;
+        }
+    }
+
+    &__price{
+        justify-self: end;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    
+    &__currency, &__price, &__qty span{
+        color: #7E7979;
+    }
+
+    &__currency{
+        display: inline-block;
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+        background-color: #FF7A0070;
+    }
+
+}
+
+
+.delete-icon{
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+    width: 20px;
+    cursor: pointer;
+
+}

@@ -1,1 +1,23 @@
-<p>cart works!</p>
+<h1 class="title">Корзина</h1>
+
+<div class="cart" [ngStyle]="!loading && (!cart || cart.products.length == 0) ? { 'align-content': 'start' } : {}">
+    <ng-template [ngIf]="cart">
+        <app-cart-product class="cart__item" *ngFor="let item of cart.products" [product]="item"
+            (onChangeFinalPrice)="onChangeCartProductFinalPrice($event)"
+            (onDelete)="onDeleteProduct(item.id)"
+        ></app-cart-product>
+    </ng-template>
+
+    <ng-template [ngIf]="!loading && (!cart || cart.products.length == 0)">
+        <h3>Ваша корзина пуста</h3>
+    </ng-template>
+    
+
+    <ngx-spinner *ngIf="loading" style="width: 0px; height: 0px;"
+        [fullScreen]="false"
+        type="ball-clip-rotate"
+        bdColor="#F2F3F550"
+        size="medium"
+    ></ngx-spinner>
+</div>
+

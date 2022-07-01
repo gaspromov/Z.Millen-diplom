@@ -1,0 +1,27 @@
+:host{
+    display: grid;
+    // grid-template-rows: auto 1fr;
+    align-content: center;
+    row-gap: 20px;
+    padding: 20px 0px;
+}
+
+.cart, .title{
+    max-width: 980px;
+    width: 100%;
+    justify-self: center;
+}
+
+.title{
+    line-height: 100%;
+    font-size: 24px;
+    color: #7E7979;
+}
+
+.cart{
+    display: grid;
+    row-gap: 15px;
+    align-content: center;
+    position: relative;
+    min-height: 300px;
+}

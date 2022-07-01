@@ -1,0 +1,36 @@
+<div class="product">
+    <img [src]="apiUrl + product.product.image" alt="" class="product__image">
+
+    <div class="product__data">
+        <div class="product__head row">
+            <h3 class="product__title">{{product.product.name}}</h3>
+    
+            <span class="product__price">
+                {{getNum(product.final_price)}}
+                <span class="product__currency">
+                    ₽
+                </span>
+            </span>
+        </div>
+        <div class="product__qty row">
+            <span>Кол-во дней:</span>
+            <app-qty-changer [productId]="product.product.id" [qty]="product.qty" (onChange)="onChangeQty($event)"></app-qty-changer>
+        </div>
+    </div>
+
+
+    <svg class="delete-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" (click)="delete()">
+        <path d="M5 10H8.33333H35" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13.333 10V6.66671C13.333 5.78265 13.6842 4.93481 14.3093 4.30968C14.9344 3.68456 15.7823 3.33337 16.6663 3.33337H23.333C24.2171 3.33337 25.0649 3.68456 25.69 4.30968C26.3152 4.93481 26.6663 5.78265 26.6663 6.66671V10M31.6663 10V33.3334C31.6663 34.2174 31.3152 35.0653 30.69 35.6904C30.0649 36.3155 29.2171 36.6667 28.333 36.6667H11.6663C10.7823 36.6667 9.93444 36.3155 9.30932 35.6904C8.6842 35.0653 8.33301 34.2174 8.33301 33.3334V10H31.6663Z" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16.667 18.3333V28.3333" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23.333 18.3333V28.3333" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</div>
+
+
+<ngx-spinner *ngIf="loading" style="width: 0px; height: 0px;"
+    [fullScreen]="false"
+    type="ball-clip-rotate"
+    bdColor="#F2F3F550"
+    size="medium"
+></ngx-spinner>

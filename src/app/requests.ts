@@ -12,9 +12,14 @@ export const Requests: RequestsRecord = {
     authLogin: { url: '/auth/login', method: 'POST' },
     authRegistr: { url: '/auth/register', method: 'POST' },
     authRefreshToken: { url: '/auth/api/token/refresh', method: 'POST' },
+
     getProducts: { url: '/shop/products', method: 'GET' },
     getCategories: { url: '/shop/categories', method: 'GET' },
+
+    getMe:        { url: '/@me', method: 'GET', authType: 'jwt' },
+
     addToCart:   { url: '/cart', method: 'POST', authType: 'jwt' },
     getCart:    { url: '/cart', method: 'GET', authType: 'jwt' },
-    getMe:        { url: '/@me', method: 'GET', authType: 'jwt' },
+    putProductCart:    { url: '/cart', method: 'PUT', authType: 'jwt' },
+    deleteProductCart:    { url: '/cart', method: 'DELETE', authType: 'jwt' }
 }
