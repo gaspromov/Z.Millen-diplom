@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize, take } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { Requests } from 'src/app/requests';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { environment } from 'src/environments/environment';
@@ -17,7 +18,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private http: HttpService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    public auth: AuthService
   ) { }
 
   ngOnInit(): void {

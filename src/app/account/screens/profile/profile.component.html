@@ -35,7 +35,11 @@
 
     <a routerLink="/auth/registration">Регистрация</a> -->
 
-    
+    <svg id="btn-logout" (click)="auth.logout('/')" xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40" fill="none">
+        <path d="M15.8926 35H9.22591C8.34186 35 7.49401 34.6488 6.86889 34.0237C6.24377 33.3986 5.89258 32.5507 5.89258 31.6667V8.33333C5.89258 7.44928 6.24377 6.60143 6.86889 5.97631C7.49401 5.35119 8.34186 5 9.22591 5H15.8926" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M27.5596 28.3334L35.8929 20.0001L27.5596 11.6667" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M35.8926 20H15.8926" stroke="#7E7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
 </div>
 
 <ngx-spinner *ngIf="loading" style="width: 0px; height: 0px;"
