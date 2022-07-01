@@ -9,7 +9,7 @@ type RequestsRecord = Record<string, ReqData>;
 
 
 export const Requests: RequestsRecord = {
-    authLogin: { url: '/auth/login/', method: 'POST' },
+    authLogin: { url: '/auth/login', method: 'POST' },
     authRegistr: { url: '/auth/register', method: 'POST' },
     authRefreshToken: { url: '/auth/api/token/refresh', method: 'POST' },
     getProducts: { url: '/shop/products', method: 'GET' },

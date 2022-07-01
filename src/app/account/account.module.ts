@@ -9,8 +9,8 @@ import { OrdersComponent } from './screens/orders/orders.component';
 
 const routes: Route[] = [
   { path: '', component: AccountComponent, children: [
-    { path: '', component: ProfileComponent },
-    { path: 'orders', component: OrdersComponent },
+    { path: '', component: ProfileComponent, data: {title: 'Профиль', descript: 'Страница профиля в сервисе Rentoo'}  },
+    { path: 'orders', component: OrdersComponent, data: {title: 'Заказы', descript: 'Заказы, оформленные в Rentoo'}  },
     { path: '**', redirectTo: '/account' }
   ]},
 ]

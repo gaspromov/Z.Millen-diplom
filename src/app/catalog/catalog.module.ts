@@ -12,7 +12,7 @@ import { ToolsModule } from '../tools/tools.module';
 
 
 const routes: Route[] = [
-  { path: ':category_id', component: CatalogComponent },
+  { path: ':category_id', component: CatalogComponent, data: {title: 'Каталог', descript: 'Каталог Rentoo'}  },
   { path: '', redirectTo: 'all' }
 ]
 

@@ -7,7 +7,7 @@ import { AboutComponent } from './components/about/about.component';
 import { HeaderComponent } from './components/header/header.component';
 
 const routes: Route[] = [
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent, data: {title: 'Главная', descript: 'Главная страница Rentoo'}  }
 ]
 
 @NgModule({

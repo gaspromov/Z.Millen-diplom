@@ -4,7 +4,7 @@ import { NotFoundComponent } from './not-found.component';
 import { Route, RouterModule } from '@angular/router';
 
 const routes: Route[] = [
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent, data: {title: "Страница не найдена", descript: 'Страница не найдена. Попробуйте перейти на главную.'} }
 ]
 
 @NgModule({
