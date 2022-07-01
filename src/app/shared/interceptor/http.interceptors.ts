@@ -18,7 +18,7 @@ export class HttpInterceptors implements HttpInterceptor {
   ) {}
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if ( !this.auth.needToRefreshAccessToken() )
+    if ( !this.auth.needToRefreshAccessToken() || !req.headers.has('authorization') )
       return next.handle(req)
         .pipe(
           catchError(err => {
@@ -26,7 +26,6 @@ export class HttpInterceptors implements HttpInterceptor {
             return throwError(err)
           })
         )
-          
     return this.auth.refreshToken()
       .pipe( 
           catchError( e => { 
@@ -34,6 +33,9 @@ export class HttpInterceptors implements HttpInterceptor {
           }),
           switchMap( ( w: any ) => next.handle( this.reqWithReplaceJWT( req, w.access ) ) )
       )
+    return next.handle( req )
+
+    
   }
 
 

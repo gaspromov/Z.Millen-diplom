@@ -58,8 +58,7 @@ export class AuthService {
   public needToRefreshAccessToken(): Boolean{
     if ( !localStorage['refreshToken'] ) return false
 
-    let expiresIn = new Date(Number(localStorage['accessTokenExpiresIn'])).getTime();
-
+    let expiresIn = new Date(Number(localStorage['assessTokenExpiresIn'])).getTime();
     return (expiresIn < new Date().getTime()) || (!localStorage['accessToken'] && localStorage['refreshToken'])
   }
 }

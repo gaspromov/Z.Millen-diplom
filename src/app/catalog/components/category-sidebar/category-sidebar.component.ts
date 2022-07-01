@@ -30,13 +30,16 @@ export class CategorySidebarComponent implements OnInit {
 
 
   getCategories(){
-    this.http.request( Requests['getCategories'] )
-      .pipe(take(1))
-      .subscribe(res => {
-          this.categories = res
-          let categoryId = this.activatedRoute.snapshot.params['category_id']
-          this.onNewCategory.emit( categoryId == 'all' ? { title: 'Все товары' } : this.categories.find(c => c.id == Number(categoryId)) )
-      })
+    console.log(
+      this.http.request( Requests['getCategories'] )
+        .pipe(take(1))
+        .subscribe(res => {
+            this.categories = res
+            let categoryId = this.activatedRoute.snapshot.params['category_id']
+            this.onNewCategory.emit( categoryId == 'all' ? { title: 'Все товары' } : this.categories.find(c => c.id == Number(categoryId)) )
+        })
+
+    )
   }
 
 }

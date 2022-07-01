@@ -11,8 +11,9 @@ type RequestsRecord = Record<string, ReqData>;
 export const Requests: RequestsRecord = {
     authLogin: { url: '/auth/login/', method: 'POST' },
     authRegistr: { url: '/auth/register', method: 'POST' },
-    authRefreshToken: { url: '/api/token/refresh', method: 'POST' },
+    authRefreshToken: { url: '/auth/api/token/refresh', method: 'POST' },
     getProducts: { url: '/shop/products', method: 'GET' },
     getCategories: { url: '/shop/categories', method: 'GET' },
+    addToBasket:   { url: '/cart', method: 'POST', authType: 'jwt' },
     getMe:        { url: '/@me', method: 'GET' }
 }
