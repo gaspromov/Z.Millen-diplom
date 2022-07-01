@@ -39,12 +39,12 @@ export class AuthService {
 
   private onSuccessLogin(authData: AuthData, isRefresh: boolean = false){
     localStorage.setItem('accessToken', authData.access);
-    localStorage.setItem('refreshToken', authData.refresh)
     localStorage.setItem('assessTokenExpiresIn', String(new Date().getTime() + 1000*60*5))
     
     if ( isRefresh ) return
     
     // localStorage.setItem('userGroup', authData.group);
+    localStorage.setItem('refreshToken', authData.refresh)
     this.authState.onChangeState(true)
   }
 

@@ -14,6 +14,7 @@ export const Requests: RequestsRecord = {
     authRefreshToken: { url: '/auth/api/token/refresh', method: 'POST' },
     getProducts: { url: '/shop/products', method: 'GET' },
     getCategories: { url: '/shop/categories', method: 'GET' },
-    addToBasket:   { url: '/cart', method: 'POST', authType: 'jwt' },
-    getMe:        { url: '/@me', method: 'GET', authType: 'jwt' }
+    addToCart:   { url: '/cart', method: 'POST', authType: 'jwt' },
+    getCart:    { url: '/cart', method: 'GET', authType: 'jwt' },
+    getMe:        { url: '/@me', method: 'GET', authType: 'jwt' },
 }

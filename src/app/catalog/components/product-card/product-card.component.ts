@@ -29,11 +29,11 @@ export class ProductCardComponent implements OnInit {
   }
 
 
-  addToBasket(){
+  addToCart(){
     this.loading = true;
     this.spinner.show(`product-${this.product.id}`)
     
-    this.http.request( Requests['addToBasket'], { qty: 1, productId: this.product.id })
+    this.http.request( Requests['addToCart'], { qty: 1, productId: this.product.id })
       .pipe(
         take(1),
         finalize(() => {
