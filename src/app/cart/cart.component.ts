@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize, take } from 'rxjs';
+import { Order } from '../account/interfaces/order';
 import { Requests } from '../requests';
 import { HttpService } from '../shared/services/http.service';
 import { Cart } from './interfaces/cart';
@@ -16,7 +18,8 @@ export class CartComponent implements OnInit {
 
   constructor(
     private http: HttpService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router
 
   ) { }
 
@@ -60,7 +63,7 @@ export class CartComponent implements OnInit {
     this.http.request( Requests['postOrder'] )
       .pipe(take(1))
       .subscribe(
-        res => console.log(res)
+        (res: Order) => this.router.navigate(['/account/orders'], { queryParams: { order: res.id } })
       )
   }
 

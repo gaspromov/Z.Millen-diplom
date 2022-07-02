@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize, take } from 'rxjs';
 import { Requests } from 'src/app/requests';
@@ -27,7 +28,8 @@ export class OrdersComponent implements OnInit {
 
   constructor(
     private http: HttpService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -48,7 +50,13 @@ export class OrdersComponent implements OnInit {
         })
       )
       .subscribe(
-        res => this.orders = res
+        res => this.orders = res,
+        err => {},
+        () => {
+          let orderId = this.activatedRoute.snapshot.queryParams['order']
+          orderId = Number(orderId)
+          this.activeOrder = this.orders.find(o => o.id == orderId)
+        }
       )
   }
 
