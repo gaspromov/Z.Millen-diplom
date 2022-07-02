@@ -19,7 +19,7 @@ export class OrdersComponent implements OnInit {
       final_price: '600',
       products: [],
       created: new Date().toDateString(),
-      status: 'done'
+      status: 1
     }
   ]
 

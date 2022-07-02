@@ -28,7 +28,6 @@
         <span class="total__price"> {{getNum(cart.final_price)}}</span><span class="order__currency">₽</span>
         
     </p>
-    {{cart.products.length == 0}}
     <button class="btn-primary order__make" [disabled]="cart.products.length == 0" (click)="createOrder()">Оформить заказ</button>
 </div>
 

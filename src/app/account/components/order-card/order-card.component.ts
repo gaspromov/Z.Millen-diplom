@@ -8,7 +8,7 @@ import { Order } from '../../interfaces/order';
 })
 export class OrderCardComponent implements OnInit {
   @Input() order!: Order
-
+  statuses = [ 'Новый', 'В обработке', 'Подтвержден', 'Завершен' ]
   constructor() { }
 
   ngOnInit(): void {
