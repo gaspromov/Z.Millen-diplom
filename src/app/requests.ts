@@ -21,5 +21,9 @@ export const Requests: RequestsRecord = {
     addToCart:   { url: '/cart', method: 'POST', authType: 'jwt' },
     getCart:    { url: '/cart', method: 'GET', authType: 'jwt' },
     putProductCart:    { url: '/cart', method: 'PUT', authType: 'jwt' },
-    deleteProductCart:    { url: '/cart', method: 'DELETE', authType: 'jwt' }
+    deleteProductCart:    { url: '/cart', method: 'DELETE', authType: 'jwt' },
+
+
+    postOrder:      { url: '/cart/checkout', method: 'POST', authType: 'jwt' },
+    getOrders:      { url: '/cart/checkout', method: 'GET', authType: 'jwt' }
 }

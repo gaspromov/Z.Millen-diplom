@@ -1,0 +1,28 @@
+:host{
+    position: relative;
+    width: 100%;
+    justify-self: center;
+    max-width: 900px;
+}
+
+.window{
+    padding: 30px 40px 30px;
+    max-width: 900px;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    justify-items: stretch;
+    position: relative;
+    min-height: 260px;
+
+    grid-auto-flow: column;
+    column-gap: 40px;
+
+}
+
+
+span.hr{
+    height: 100%;
+    width: 1px;
+    background-color: #7E7979;
+}

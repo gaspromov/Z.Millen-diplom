@@ -6,6 +6,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { NavComponent } from './components/nav/nav.component';
 import { AccountComponent } from './account.component';
 import { OrdersComponent } from './screens/orders/orders.component';
+import { OrderCardComponent } from './components/order-card/order-card.component';
+import { OrderProductsComponent } from './components/order-products/order-products.component';
 
 const routes: Route[] = [
   { path: '', component: AccountComponent, children: [
@@ -20,7 +22,9 @@ const routes: Route[] = [
     ProfileComponent,
     NavComponent,
     AccountComponent,
-    OrdersComponent
+    OrdersComponent,
+    OrderCardComponent,
+    OrderProductsComponent
   ],
   imports: [
     CommonModule,

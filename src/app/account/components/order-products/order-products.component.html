@@ -1,0 +1,12 @@
+<div class="card">
+    <h3 class="card__title">Заказ №{{order.id}}</h3>
+    <div class="card__list">
+        <div class="product" *ngFor="let p of order.products">
+            <img [src]="apiUrl + p.product.image" alt="" class="product__img">
+            <div class="product__data">
+                <h4 class="product__title">{{p.product.name}}</h4>
+                <p class="product__qty">{{p.qty}}</p>
+            </div>
+        </div>
+    </div>
+</div>

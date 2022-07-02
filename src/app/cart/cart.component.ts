@@ -56,6 +56,13 @@ export class CartComponent implements OnInit {
   }
 
 
+  createOrder(){
+    this.http.request( Requests['postOrder'] )
+      .pipe(take(1))
+      .subscribe(
+        res => console.log(res)
+      )
+  }
 
   getNum( str: string ){
     return Number(str)

@@ -29,6 +29,6 @@
         
     </p>
 
-    <button class="btn-primary order__make">Оформить заказ</button>
+    <button class="btn-primary order__make" [disabled]="cart.products.length == 0" (click)="createOrder()">Оформить заказ</button>
 </div>
 
