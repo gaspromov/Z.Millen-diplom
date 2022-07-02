@@ -26,11 +26,12 @@
     column-gap: 17px;
     align-items: center;
     justify-content: start;
+    grid-auto-flow: column;
 
-    &__image{
+    &__img{
         border: 1px solid #7E7979;
         border-radius: 10px;
-        height: 45px;
+        height: 65px;
     }
 
     &__data{
