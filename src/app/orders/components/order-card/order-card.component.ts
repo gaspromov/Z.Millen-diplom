@@ -14,13 +14,13 @@ import { OrderOperator } from '../../interfaces/order-operator';
 export class OrderCardComponent implements OnInit {
   @Input() order!: OrderOperator
   statuses = [ 
-    { id: 1, name: 'Новый'}, 
-    { id: 2, name: 'В обработке'}, 
-    { id: 3, name: 'Подтвержден'}, 
-    { id: 4, name: 'Завершен'}, 
+    { id: 0, name: 'Новый'}, 
+    { id: 1, name: 'В обработке'}, 
+    { id: 2, name: 'Подтвержден'}, 
+    { id: 3, name: 'Завершен'}, 
   ]
 
-  orderStatus = Number(this.order.status)
+  orderStatus: number = 0
 
   loading: boolean = false;
 
@@ -32,6 +32,7 @@ export class OrderCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.orderStatus = Number(this.order.status)
   }
 
 
