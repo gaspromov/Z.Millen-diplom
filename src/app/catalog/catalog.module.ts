@@ -32,6 +32,7 @@ const routes: Route[] = [
     ReactiveFormsModule,
     NgxSpinnerModule,
     ToolsModule
-  ]
+  ],
+  providers:    [ SearchPipe ]
 })
 export class CatalogModule { }

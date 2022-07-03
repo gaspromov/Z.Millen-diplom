@@ -3,7 +3,7 @@
 
 <div class="content-wrapper">
     <h2>{{category.title}}</h2>
-    <app-category-sidebar (onNewCategory)="category=$event"></app-category-sidebar>
+    <app-category-sidebar (onNewCategory)="category=$event; getFilteredCount()"></app-category-sidebar>
     
     <div class="row">
         <div class="inp-wrapper">
@@ -32,8 +32,8 @@
         ></app-product-card>
     </div>
     
-    <app-paginator *ngIf="products.length > 0" style="grid-column: 1/3; justify-self: end; padding-right: 20px"
-        [length]="products.length"
+    <app-paginator *ngIf="filteredCount > 0" style="grid-column: 1/3; justify-self: end; padding-right: 20px"
+        [length]="filteredCount"
         [pageSize]="countOnPage"
         (onChangePage)="setOutputBrands($event)"
     ></app-paginator>
