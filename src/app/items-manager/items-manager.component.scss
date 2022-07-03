@@ -1,0 +1,67 @@
+:host{
+    position: relative;
+    width: 100%;
+    justify-self: center;
+    max-width: 1200px;
+    display: grid;
+    align-items: center;
+    align-content: center;
+}
+
+h2{
+    font-size: 22px;
+    justify-self: center;
+}
+
+
+
+.window{
+    padding: 15px 20px;
+    max-width: 1200px;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    justify-items: stretch;
+    position: relative;
+    min-height: 350px;
+
+    grid-auto-flow: column;
+    column-gap: 40px;
+
+}
+
+
+
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    min-height: 600px;
+    overflow: auto;
+}
+
+thead{
+    th{
+        border-bottom: 1px solid black;
+        background-color: #fff;
+        position: sticky;
+        top: 0px;
+        padding-bottom: 10px;
+    }
+}
+
+tbody{
+    max-height: 700px;
+    td{
+        padding: 8px 12px;
+    }
+}
+
+td,th{
+    text-align: center;
+}
+
+.table-wrapper{
+    max-height: calc(100vh - 300px);
+    overflow: auto;
+}

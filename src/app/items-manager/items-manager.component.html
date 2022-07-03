@@ -1,1 +1,27 @@
-<p>items-manager works!</p>
+<h2 class="title">Товары</h2>
+<div class="table-wrapper">
+    <table class="products__list">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Фото</th>
+                <th>Название</th>
+                <th>Категория</th>
+                <th>Создано</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let item of items">
+                    <td>{{item.id}}</td>
+                    <td></td>
+                    <td>{{item.name}}</td>
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.created | date:'MMM dd' }}</td>
+                    <td>
+        
+                    </td>
+                </tr>
+            </tbody>
+    </table>
+</div>

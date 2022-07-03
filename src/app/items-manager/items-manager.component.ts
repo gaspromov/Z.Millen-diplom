@@ -22,6 +22,7 @@ export class ItemsManagerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getProducts();
   }
 
 

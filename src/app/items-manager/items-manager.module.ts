@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ItemsManagerComponent } from './items-manager.component';
 import { ItemCardComponent } from './components/item-card/item-card.component';
 import { ItemFormComponent } from './components/item-form/item-form.component';
-import { Route } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 
 const routes: Route[] = [
   { path: '', component: ItemsManagerComponent },
@@ -17,7 +19,9 @@ const routes: Route[] = [
     ItemFormComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(routes),
+    ScrollingModule
   ]
 })
 export class ItemsManagerModule { }
