@@ -4,6 +4,7 @@ import { catchError, take, tap, throwError } from 'rxjs';
 import { Requests } from 'src/app/requests';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { ToolsService } from 'src/app/shared/services/tools.service';
+import { UserService } from 'src/app/shared/services/user.service';
 import { AuthStateService } from './auth-state.service';
 
 interface AuthData{
@@ -21,7 +22,8 @@ export class AuthService {
     private http: HttpService,
     private tools: ToolsService,
     private authState: AuthStateService,
-    private router: Router
+    private router: Router,
+    private user: UserService
   ) { }
 
   login( data: { login: string, password: string } ){
@@ -40,7 +42,7 @@ export class AuthService {
   private onSuccessLogin(authData: AuthData, isRefresh: boolean = false){
     localStorage.setItem('accessToken', authData.access);
     localStorage.setItem('assessTokenExpiresIn', String(new Date().getTime() + 1000*60*5))
-    
+    this.user.getUser();
     if ( isRefresh ) return
     
     // localStorage.setItem('userGroup', authData.group);

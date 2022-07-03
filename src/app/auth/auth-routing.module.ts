@@ -5,6 +5,7 @@ import { RegistrationComponent } from './screens/registration/registration.compo
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent, data: {title: 'Авторизация', descript: 'Страница авторизация в сервисе Rentoo'} },
+    { path: 'registration/:group', component: RegistrationComponent, data: {title: 'Регистрация', descript: 'Страница регистрации в сервисе Rentoo'} },
     { path: 'registration', component: RegistrationComponent, data: {title: 'Регистрация', descript: 'Страница регистрации в сервисе Rentoo'} },
     { path: '**', redirectTo: 'login' }
 ];

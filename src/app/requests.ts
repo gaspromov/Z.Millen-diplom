@@ -24,6 +24,9 @@ export const Requests: RequestsRecord = {
     deleteProductCart:    { url: '/cart', method: 'DELETE', authType: 'jwt' },
 
 
-    postOrder:      { url: '/cart/checkout', method: 'POST', authType: 'jwt' },
-    getOrders:      { url: '/cart/checkout', method: 'GET', authType: 'jwt' }
+    postOrder:      { url: '/order/checkout', method: 'POST', authType: 'jwt' },
+    getOrders:      { url: '/order/checkout', method: 'GET', authType: 'jwt' },
+
+    getOperatorOrders:  { url: '/order', method: 'GET', authType: 'jwt' },
+    putOrder:           { url: '/order', method: 'PUT', authType: 'jwt' }
 }

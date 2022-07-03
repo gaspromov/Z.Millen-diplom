@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { Requests } from 'src/app/requests';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { environment } from 'src/environments/environment';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ProfileComponent implements OnInit {
   loading: boolean = false;
-  profile: any
+  profile!: User
   apiUrl = environment.apiUrl
 
   constructor(

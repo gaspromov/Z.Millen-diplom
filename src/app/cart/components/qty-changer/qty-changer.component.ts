@@ -24,7 +24,6 @@ export class QtyChangerComponent implements OnInit {
   }
 
   onChangeQty(delta: number){
-    console.log( this.qty, delta )
     this.qty+=delta;
     this.changeQty()
   }

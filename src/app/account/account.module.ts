@@ -30,6 +30,9 @@ const routes: Route[] = [
     CommonModule,
     RouterModule.forChild(routes),
     NgxSpinnerModule
+  ],
+  exports: [
+    OrderProductsComponent,
   ]
 })
 export class AccountModule { }

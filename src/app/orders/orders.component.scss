@@ -1,0 +1,48 @@
+:host{
+    position: relative;
+    width: 100%;
+    justify-self: center;
+    max-width: 900px;
+    display: grid;
+    align-items: center;
+    align-content: center;
+}
+
+h2{
+    font-size: 22px;
+    justify-self: center;
+}
+
+.window{
+    padding: 15px 20px;
+    max-width: 1200px;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    justify-items: stretch;
+    position: relative;
+    min-height: 350px;
+
+    grid-auto-flow: column;
+    column-gap: 40px;
+
+}
+
+.orders{
+    &__list{
+        display: grid;
+        row-gap: 20px;
+    }
+}
+
+span.hr{
+    height: 100%;
+    width: 1px;
+    background-color: #7E7979;
+}
+
+.order-data{
+    align-content: start;
+    display: grid;
+    row-gap: 20px;
+}

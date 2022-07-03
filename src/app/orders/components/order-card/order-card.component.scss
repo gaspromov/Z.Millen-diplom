@@ -1,0 +1,23 @@
+.order{
+    column-gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    position: relative;
+    padding-bottom: 4px;
+
+    &::before{
+        content: '';
+        display: inline-block;
+        height: 1px;
+        background-color: #7E7979;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+    }
+
+    &__property{
+        color: #7E7979;
+        font-size: 14px;
+        line-height: 100%;
+    }
+}

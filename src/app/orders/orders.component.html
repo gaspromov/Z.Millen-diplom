@@ -1,0 +1,19 @@
+<h2>Заказы</h2>
+<div class="window orders">
+    <div class="orders__list">
+        <app-order-card *ngFor="let order of orders" [order]="order" (click)="activeOrder=order" style="cursor: pointer;"></app-order-card>
+    </div>
+    <span class="hr" *ngIf="activeOrder"></span>
+    <div class="order-data" *ngIf="activeOrder">
+        <app-order-customer [user]="activeOrder.owner"></app-order-customer>
+        <app-order-products [order]="activeOrder"></app-order-products>
+    </div>
+    
+</div>
+
+<ngx-spinner *ngIf="loading" style="width: 0px; height: 0px;"
+[fullScreen]="false"
+type="ball-clip-rotate"
+bdColor="#F2F3F550"
+size="medium"
+></ngx-spinner>

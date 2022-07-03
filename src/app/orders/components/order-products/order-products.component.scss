@@ -1,0 +1,51 @@
+*{
+    color: #7E7979;
+}
+
+.card{
+    border: 1px solid #7E7979;
+    border-radius: 10px;
+    padding: 12px 17px;
+    display: grid;
+    row-gap: 20px;
+
+    &__title{
+        font-size: 16px;
+        line-height: 100%;
+        text-align: center;
+    }
+
+    &__list{
+        display: grid;
+        row-gap: 17px;
+    }
+}
+
+.product{
+    display: grid;
+    column-gap: 17px;
+    align-items: center;
+    justify-content: start;
+    grid-auto-flow: column;
+
+    &__img{
+        border: 1px solid #7E7979;
+        border-radius: 10px;
+        height: 65px;
+    }
+
+    &__data{
+        display: grid;
+        row-gap: 10px;
+    }
+
+    &__title{
+        font-size: 16px;
+        line-height: 100%;
+    }
+
+    &__qty{
+        font-size: 12px;
+        line-height: 100%;
+    }
+}

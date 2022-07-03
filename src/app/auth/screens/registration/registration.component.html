@@ -1,5 +1,5 @@
 <form [formGroup]="regForm" (ngSubmit)="onRegistr()" class="window">
-    <h2 class="window__title">Регистрация</h2>
+    <h2 class="window__title">Регистрация {{ groupName ? '(' + groupName + ')' : '' }}</h2>
 
     <div class="fields">
         <fieldset>
@@ -16,7 +16,7 @@
         </fieldset>
     </div>
     <!-- <app-password-control [control]="regForm.controls['password']"></app-password-control> -->
-    <button class="btn-primary window__btn" [disabled]="loading">
+    <button class="btn-primary window__btn" [disabled]="loading" style="width: 230px;">
         <btn-loader text="Зарегистрироваться" [loading]="loading"></btn-loader>
     </button>
 </form>

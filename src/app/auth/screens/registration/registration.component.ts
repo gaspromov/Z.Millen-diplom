@@ -1,9 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { finalize, take } from 'rxjs';
 import { Requests } from 'src/app/requests';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { AuthService } from '../../services/auth.service';
+
+enum ruEnGroups{
+  'operator' = 'оператор',
+  'shop owner' = 'магазин',
+}
+
+
+enum NumGroups {
+  'оператор' = 2,
+  'магазин' = 3,
+}
 
 @Component({
   selector: 'app-registration',
@@ -17,10 +29,19 @@ export class RegistrationComponent implements OnInit {
 
   // password_confirm = new FormControl(null, Validators.required)
 
+  groupName: string | undefined;
+
   constructor(
     private auth: AuthService,
-    private http: HttpService
-  ) { }
+    private http: HttpService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.groupName = this.activatedRoute.snapshot.params['group']
+    if ( !this.groupName ) return;
+    // @ts-ignore
+    this.groupName = ruEnGroups[this.groupName.split('-').join(' ')];
+  }
 
   ngOnInit(): void {
     this.generateForm()
@@ -34,7 +55,8 @@ export class RegistrationComponent implements OnInit {
       email: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
       password_confirm: new FormControl(null, Validators.required),
-      group: new FormControl(1)
+      // @ts-ignore
+      group: new FormControl( this.groupName ? NumGroups[this.groupName] : 1)
     })
   }
 
@@ -50,6 +72,8 @@ export class RegistrationComponent implements OnInit {
         take(1),
         finalize(() => this.loading = false)
       )
-      .subscribe()
+      .subscribe(res => {
+        this.router.navigate(['/auth/login'])
+      })
   }
 }
