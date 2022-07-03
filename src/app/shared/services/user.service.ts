@@ -16,6 +16,11 @@ export class UserService {
   ) { }
 
   getUser(){
+    if ( !localStorage['accessToken'] ){
+      this.$user.next(undefined)
+      return
+    }
+    
     this.http.request(Requests['getMe'])
       .pipe(
         take(1),
