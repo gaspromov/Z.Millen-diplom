@@ -1,0 +1,21 @@
+<div class="overlay">
+    <div class="artboard" (click)="onClose.emit()"></div>
+
+    <form class="window" [formGroup]="pForm" (ngSubmit)="postForm()">
+
+        <div class="image">
+            
+        </div>
+        <input type="text" class="inp-primary" formControlName="name" placeholder="Название">
+        <input type="stock" class="inp-primary" formControlName="stock" placeholder="Количетсво">
+        <select class="inp-primary" formControlName="category">
+            <option *ngFor="let c of categories" [value]="c.id">{{c.title}}</option>
+        </select>
+        <input type="price" class="inp-primary" formControlName="price" placeholder="Стоимость">
+        <textarea formControlName="description" class="inp-primary" placeholder="Описание"></textarea>
+
+        <button class="btn-primary">
+            <btn-loader text="Сохранить" [loading]="loading"></btn-loader>
+        </button>
+    </form>
+</div>

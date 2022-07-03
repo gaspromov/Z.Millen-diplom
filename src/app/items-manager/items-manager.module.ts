@@ -5,6 +5,10 @@ import { ItemCardComponent } from './components/item-card/item-card.component';
 import { ItemFormComponent } from './components/item-form/item-form.component';
 import { Route, RouterModule } from '@angular/router';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { SearchPipe } from './pipes/search.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductFormComponent } from './components/product-form/product-form.component';
+import { ToolsModule } from '../tools/tools.module';
 
 
 const routes: Route[] = [
@@ -16,12 +20,17 @@ const routes: Route[] = [
   declarations: [
     ItemsManagerComponent,
     ItemCardComponent,
-    ItemFormComponent
+    ItemFormComponent,
+    SearchPipe,
+    ProductFormComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ScrollingModule
+    ScrollingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToolsModule
   ]
 })
 export class ItemsManagerModule { }

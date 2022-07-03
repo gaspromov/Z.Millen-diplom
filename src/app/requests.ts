@@ -14,6 +14,10 @@ export const Requests: RequestsRecord = {
     authRefreshToken: { url: '/auth/api/token/refresh', method: 'POST' },
 
     getProducts: { url: '/shop/products', method: 'GET' },
+    deleteProduct:  { url: '/shop/products/:param', method: 'DELETE', authType: 'jwt' },
+    postProduct:  { url: '/shop/products', method: 'POST', authType: 'jwt' },  
+    putProduct:  { url: '/shop/products', method: 'PUT', authType: 'jwt' },  
+
     getCategories: { url: '/shop/categories', method: 'GET' },
 
     getMe:        { url: '/@me', method: 'GET', authType: 'jwt' },

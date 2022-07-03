@@ -6,6 +6,7 @@
     display: grid;
     align-items: center;
     align-content: center;
+    row-gap: 20px;
 }
 
 h2{
@@ -42,11 +43,20 @@ table{
 
 thead{
     th{
-        border-bottom: 1px solid black;
         background-color: #fff;
-        position: sticky;
         top: 0px;
         padding-bottom: 10px;
+        position: sticky;
+        &::before{
+            display: inline-block;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: #000;
+            bottom: 0px;
+            left: 0px;
+        }
     }
 }
 
@@ -64,4 +74,49 @@ td,th{
 .table-wrapper{
     max-height: calc(100vh - 300px);
     overflow: auto;
+}
+
+table tr:nth-child(even){
+    background-color: rgb(234, 234, 234);
+}
+
+
+
+
+.inp-wrapper{
+    display: grid;
+    position: relative;
+
+    max-width: 350px;
+    input{
+        border: none;
+        border-bottom: 1.5px solid black;
+        padding-right: 5px;
+    }
+
+    .icon{
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 2px;
+    }
+}
+
+
+.action{
+    display: grid;
+    column-gap: 15px;
+    justify-content: center;
+    &__btn{
+        cursor: pointer;
+        width: 17px;
+    }
+}
+
+button{
+    width: 180px;
+    height: 36px;
+    justify-self: end;
+    font-weight: 500;
+    font-size: 14px;
 }
