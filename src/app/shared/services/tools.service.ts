@@ -37,6 +37,22 @@ export class ToolsService {
   }
 
 
+  getFormData( event: any, file?: File ): FormData | null{
+    if ( event ){
+      let target = event.target || event.srcElement;
+      if ( !target?.files[0] )
+        return null;
+      file = target.files[0];
+    }
+    
+    let formData: FormData = new FormData();
+
+    if ( file )
+      formData.set('file', file, file?.name || 'name' );
+
+    return file ? 
+    formData : null;
+  }
 
 
 }

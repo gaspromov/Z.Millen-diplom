@@ -1,0 +1,4 @@
+<div class="image" [ngStyle]="imgPathControl.value ? { 'background-image': apiUrl + imgPathControl.value } : {}">
+    <input type="file" hidden (change)="onAddFile($event)" id="p-image"  accept=".jpg, .png, .jpeg, .svg">
+    <label for="p-image" class="btn">Загрузить</label>
+</div>

@@ -3,9 +3,7 @@
 
     <form class="window" [formGroup]="pForm" (ngSubmit)="postForm()">
 
-        <div class="image">
-            
-        </div>
+        <app-product-image [control]="pForm.controls['image']"></app-product-image>
         <input type="text" class="inp-primary" formControlName="name" placeholder="Название">
         <input type="stock" class="inp-primary" formControlName="stock" placeholder="Количетсво">
         <select class="inp-primary" formControlName="category">

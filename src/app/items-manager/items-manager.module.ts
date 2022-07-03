@@ -9,6 +9,7 @@ import { SearchPipe } from './pipes/search.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ToolsModule } from '../tools/tools.module';
+import { ProductImageComponent } from './components/product-image/product-image.component';
 
 
 const routes: Route[] = [
@@ -22,7 +23,8 @@ const routes: Route[] = [
     ItemCardComponent,
     ItemFormComponent,
     SearchPipe,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductImageComponent
   ],
   imports: [
     CommonModule,

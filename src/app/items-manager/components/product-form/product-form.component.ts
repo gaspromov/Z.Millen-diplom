@@ -48,7 +48,8 @@ export class ProductFormComponent implements OnInit {
       price: new FormControl(null, Validators.required),
       shop: new FormControl(1, Validators.required),
       category: new FormControl(1, Validators.required),
-      id: new FormControl()
+      id: new FormControl(),
+      image: new FormControl(null, Validators.required)
     })
 
     if ( this.product )

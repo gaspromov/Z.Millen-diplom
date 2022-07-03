@@ -32,5 +32,8 @@ export const Requests: RequestsRecord = {
     getOrders:      { url: '/order/checkout', method: 'GET', authType: 'jwt' },
 
     getOperatorOrders:  { url: '/order', method: 'GET', authType: 'jwt' },
-    putOrder:           { url: '/order', method: 'PUT', authType: 'jwt' }
+    putOrder:           { url: '/order', method: 'PUT', authType: 'jwt' },
+
+
+    uploadFile:         { url: '/media/shop', method: 'POST', authType: 'jwt' }
 }
