@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { finalize, take } from 'rxjs';
+import { finalize, map, take } from 'rxjs';
 import { Order } from '../account/interfaces/order';
 import { Requests } from '../requests';
 import { HttpService } from '../shared/services/http.service';
@@ -35,10 +35,16 @@ export class CartComponent implements OnInit {
     this.http.request( Requests['getCart'] )
       .pipe(
         take(1),
+        map((c: Cart) => {
+          return {
+            ...c,
+            products: c.products.map( p => { return { ...p, product: { ...p.product, image: '/media/' + p.product.image }}})
+          }
+        }),
         finalize(() => {
           this.loading = false;
           this.spinner.hide();
-        })
+        }),
       )
       .subscribe(
         res => this.cart = res
