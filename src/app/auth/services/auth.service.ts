@@ -71,5 +71,6 @@ export class AuthService {
     localStorage.removeItem('refreshToken')
     this.authState.onChangeState(false);
     this.router.navigate([redirectTo || '/'])
+    this.user.onNullUser()
   }
 }
