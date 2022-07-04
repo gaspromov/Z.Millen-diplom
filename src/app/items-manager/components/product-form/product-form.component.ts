@@ -59,6 +59,9 @@ export class ProductFormComponent implements OnInit {
 
   postForm(){
     this.pForm.markAllAsTouched()
+
+    if ( this.pForm.controls['image'].invalid ) this.tools.generateNotification('Загрузите картинку!', true);
+    
     if ( this.pForm.invalid ) return;
 
     this.loading = true;

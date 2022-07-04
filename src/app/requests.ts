@@ -35,5 +35,5 @@ export const Requests: RequestsRecord = {
     putOrder:           { url: '/order', method: 'PUT', authType: 'jwt' },
 
 
-    uploadFile:         { url: '/media/shop', method: 'POST', authType: 'jwt' }
+    uploadFile:         { url: '/shop/file', method: 'POST', authType: 'jwt' }
 }
