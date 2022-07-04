@@ -5,8 +5,8 @@
 
 
     <div class="links row">
-        <a routerLink="/catalog" class="link" style="margin-right: 40px;" *ngIf="userGroup == 1">Каталог</a>
-        <a routerLink="/items-manager" class="link" style="margin-right: 40px;" *ngIf="userGroup == 2">Товары</a>
+        <a routerLink="/catalog" class="link" style="margin-right: 40px;" *ngIf="userGroup == 1 || !isAuth">Каталог</a>
+        <a routerLink="/items-manager" class="link" style="margin-right: 40px;" *ngIf="userGroup == 2 && isAuth">Товары</a>
 
         <a routerLink="/cart" class="link links__item" *ngIf="isAuth && userGroup == 1">
             <svg class="link__icon"  xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40" fill="none">
