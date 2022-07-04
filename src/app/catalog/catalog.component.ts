@@ -72,7 +72,8 @@ export class CatalogComponent implements OnInit, OnDestroy {
 
 
   getFilteredCount(){
-    this.filteredCount = new SearchPipe().transform(this.products, 'category', this.category?.id, true).length
+    let searchedProducts = new SearchPipe().transform(this.products, 'name', this.searchParam, false)
+    this.filteredCount = new SearchPipe().transform(searchedProducts, 'category', this.category?.id, true).length
     this.cdr.detectChanges()
     this.setOutputBrands( 1 )
   }
@@ -80,7 +81,9 @@ export class CatalogComponent implements OnInit, OnDestroy {
   
   setOutputBrands( page: number ){
     this.currentPageNum = page;
-    this.outputProducts = new SearchPipe().transform(this.products, 'category', this.category?.id, true).slice( (page-1)*this.countOnPage, page * this.countOnPage );
+    
+    let searchedProducts = new SearchPipe().transform(this.products, 'name', this.searchParam, false)
+    this.outputProducts = new SearchPipe().transform(searchedProducts, 'category', this.category?.id, true).slice( (page-1)*this.countOnPage, page * this.countOnPage );
   }
 
 }
