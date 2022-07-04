@@ -8,11 +8,12 @@ import { AccountComponent } from './account.component';
 import { OrdersComponent } from './screens/orders/orders.component';
 import { OrderCardComponent } from './components/order-card/order-card.component';
 import { OrderProductsComponent } from './components/order-products/order-products.component';
+import { UserGuard } from '../shared/guards/user.guard';
 
 const routes: Route[] = [
   { path: '', component: AccountComponent, children: [
     { path: '', component: ProfileComponent, data: {title: 'Профиль', descript: 'Страница профиля в сервисе Rentoo'}  },
-    { path: 'orders', component: OrdersComponent, data: {title: 'Заказы', descript: 'Заказы, оформленные в Rentoo'}  },
+    { path: 'orders', component: OrdersComponent, data: {title: 'Заказы', descript: 'Заказы, оформленные в Rentoo'}, canActivate: [UserGuard]  },
     { path: '**', redirectTo: '/account' }
   ]},
 ]
