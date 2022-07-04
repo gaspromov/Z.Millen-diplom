@@ -22,7 +22,7 @@ export class NavComponent implements OnInit {
     })
 
     this.userService.user 
-      .subscribe(res => this.userGroup = res?.group || 1)
+      .subscribe(res =>{ this.userGroup = res?.group || 1})
   }
 
   ngOnInit(): void {

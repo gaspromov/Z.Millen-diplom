@@ -1,0 +1,27 @@
+.image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid rgb(198, 198, 198);
+ 
+    display: grid;
+
+
+    &:not(.empty) label{
+        opacity: 0;
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+
+
+label{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+    font-weight: 600;
+
+    transition: .3s;
+}

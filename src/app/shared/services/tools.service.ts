@@ -48,11 +48,15 @@ export class ToolsService {
     let formData: FormData = new FormData();
 
     if ( file )
-      formData.set('file', file, file?.name || 'name' );
+      formData.set('uploadedFile', file, file?.name ? this.getValidFileName(file.name) : 'name' );
 
     return file ? 
     formData : null;
   }
 
+
+  getValidFileName(name: string){
+    return name.split(' ').join('').split('(').join('').split(')').join('');
+  }
 
 }

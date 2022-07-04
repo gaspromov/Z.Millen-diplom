@@ -3,13 +3,13 @@
 
     <form class="window" [formGroup]="pForm" (ngSubmit)="postForm()">
 
-        <app-product-image [control]="pForm.controls['image']"></app-product-image>
+        <app-product-image [control]="pForm.controls['image']" class="image"></app-product-image>
         <input type="text" class="inp-primary" formControlName="name" placeholder="Название">
-        <input type="stock" class="inp-primary" formControlName="stock" placeholder="Количетсво">
+        <input type="number" class="inp-primary" formControlName="stock" placeholder="Количетсво">
         <select class="inp-primary" formControlName="category">
             <option *ngFor="let c of categories" [value]="c.id">{{c.title}}</option>
         </select>
-        <input type="price" class="inp-primary" formControlName="price" placeholder="Стоимость">
+        <input type="number" class="inp-primary" formControlName="price" placeholder="Стоимость">
         <textarea formControlName="description" class="inp-primary" placeholder="Описание"></textarea>
 
         <button class="btn-primary">

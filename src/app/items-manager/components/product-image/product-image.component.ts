@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { AbstractControl, FormControl } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize, take } from 'rxjs';
@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './product-image.component.html',
   styleUrls: ['./product-image.component.scss']
 })
-export class ProductImageComponent implements OnInit {
+export class ProductImageComponent implements OnInit, AfterViewInit {
    @Input('control') imgPathControl!: FormControl | AbstractControl
 
    apiUrl = environment.apiUrl;
@@ -22,10 +22,16 @@ export class ProductImageComponent implements OnInit {
   constructor(
     private tools: ToolsService,
     private spinner: NgxSpinnerService,
-    private http: HttpService
+    private http: HttpService,
+    private renderer: Renderer2,
+    private eRef: ElementRef
   ) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.updateBgImage();
   }
 
   onAddFile(e: any){
@@ -43,8 +49,17 @@ export class ProductImageComponent implements OnInit {
         })
       )
       .subscribe(
-        res => this.imgPathControl.setValue(res)
+        res => {
+          this.imgPathControl.setValue('/media/' + res.name)
+          this.updateBgImage();
+        }
       )
+  }
+
+  updateBgImage(){
+    if ( !this.imgPathControl.value ) return
+    let imgEl: HTMLElement = this.eRef.nativeElement.querySelector('.image')
+    this.renderer.setStyle(imgEl, 'background-image', `url(${this.apiUrl + this.imgPathControl.value})`)
   }
 
 }
