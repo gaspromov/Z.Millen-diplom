@@ -50,7 +50,7 @@ export class ProductImageComponent implements OnInit, AfterViewInit {
       )
       .subscribe(
         res => {
-          this.imgPathControl.setValue('/media/' + res.name)
+          this.imgPathControl.setValue(res.name)
           this.updateBgImage();
         }
       )
@@ -59,7 +59,7 @@ export class ProductImageComponent implements OnInit, AfterViewInit {
   updateBgImage(){
     if ( !this.imgPathControl.value ) return
     let imgEl: HTMLElement = this.eRef.nativeElement.querySelector('.image')
-    this.renderer.setStyle(imgEl, 'background-image', `url(${this.apiUrl + this.imgPathControl.value})`)
+    this.renderer.setStyle(imgEl, 'background-image', `url(${this.apiUrl + '/media/' + this.imgPathControl.value})`)
   }
 
 }

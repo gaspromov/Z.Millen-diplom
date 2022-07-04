@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { finalize, take } from 'rxjs';
+import { finalize, map, take } from 'rxjs';
 import { Requests } from 'src/app/requests';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { Order } from '../../interfaces/order';
@@ -47,7 +47,10 @@ export class OrdersComponent implements OnInit {
         finalize(() => {
           this.loading = false;
           this.spinner.hide()
-        })
+        }),
+        map((d: Order[]) => d.map(o => {
+          return { ...o, products: o.products.map(p => { return { ...p, product: { ...p.product, image: '/media/' + p.product.image } } }) }
+        }))
       )
       .subscribe(
         res => this.orders = res,
