@@ -15,7 +15,7 @@ export class UserGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.user.user.pipe(take(1), map(u => u?.group == 1), tap(b => b ? null : this.router.navigate(['/'])))
+    return this.user.user.pipe(take(1), map(u => u?.group == 1), tap(b => b ? null : this.router.navigate(['/not-found'])))
   }
   
 }

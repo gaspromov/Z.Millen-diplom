@@ -14,7 +14,7 @@ export class OperatorGuard implements CanActivate {
 
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
-    return this.user.user.pipe(take(1), map(u => u?.group == 2), tap(b => b ? null : this.router.navigate(['/catalog'])))
+    return this.user.user.pipe(take(1), map(u => u?.group == 2), tap(b => b ? null : this.router.navigate(['/not-found'])))
   }
   
 }
