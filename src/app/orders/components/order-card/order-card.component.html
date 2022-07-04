@@ -11,5 +11,5 @@
     <p class="order__user order__property">
         {{ order.owner.email }}
     </p>
-    <p class="order__price order__property">{{order.final_price}}</p>
+    <p class="order__price order__property">{{getNum(order.final_price)}}₽</p>
 </div>

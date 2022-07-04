@@ -54,4 +54,9 @@ export class OrderCardComponent implements OnInit {
       )
   }
 
+
+  getNum(str: string){
+    return Number(str)
+  }
+
 }
