@@ -14,4 +14,9 @@ export class OrderCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  getNum( str: String ){
+    return Number(str)
+  }
+
 }

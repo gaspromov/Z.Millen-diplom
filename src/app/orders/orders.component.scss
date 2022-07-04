@@ -32,6 +32,7 @@ h2{
     &__list{
         display: grid;
         row-gap: 20px;
+        align-content: start;
     }
 }
 
