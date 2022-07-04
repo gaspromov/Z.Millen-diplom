@@ -15,13 +15,6 @@ export class OrdersComponent implements OnInit {
   loading: boolean = false;
 
   orders: Order[] = [
-    {
-      id: 1,
-      final_price: '600',
-      products: [],
-      created: new Date().toDateString(),
-      status: 1
-    }
   ]
 
   activeOrder: Order | undefined;

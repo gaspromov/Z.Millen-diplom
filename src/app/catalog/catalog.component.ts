@@ -8,6 +8,7 @@ import { PaginatorComponent } from '../tools/components/paginator/paginator.comp
 import { Category } from './interfaces/category';
 import { Product } from './interfaces/product';
 import { SearchPipe } from './pipes/search.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 @Component({
   selector: 'app-catalog',
@@ -73,6 +74,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
 
   getFilteredCount(){
     let searchedProducts = new SearchPipe().transform(this.products, 'name', this.searchParam, false)
+    let sortedProducts = new SortPipe().transform(this.products, this.sortParam, true)
     this.filteredCount = new SearchPipe().transform(searchedProducts, 'category', this.category?.id, true).length
     this.cdr.detectChanges()
     this.setOutputBrands( 1 )

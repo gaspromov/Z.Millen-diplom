@@ -9,7 +9,7 @@
         <div class="inp-wrapper">
             <input type="text" [(ngModel)]="searchParam" name="" id="" placeholder="Поиск товаров" (ngModelChange)="getFilteredCount()">
         </div>
-        <select [(ngModel)]="sortParam">
+        <select [(ngModel)]="sortParam" (ngModelChange)="getFilteredCount()">
             <option value="" selected disabled>Не сортировать</option>
             <option value="price">По цене</option>
         </select>
